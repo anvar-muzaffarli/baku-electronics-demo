@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap'
 import './App.css';
 
+
 import products from './products.json'
 
 
@@ -12,6 +13,7 @@ import Product from './components/Product';
 
 
 import {useEffect, useState} from 'react'
+import Basket from './components/Basket';
 
 
 
@@ -54,6 +56,12 @@ function App() {
       }
 
 </div>
+
+{
+  total > 0 && (
+    <Basket resetBasket={resetBasket} products={products} total={total} basket={sebet} />
+  )
+}
       
     </div>
   );
