@@ -120,3 +120,15 @@
   background-color: black;
   color: red;
 }
+
+
+/* SWIPER */
+
+.swiper-wrapper {
+  margin-top: 30px;
+  height: 420px !important;
+}
+
+.swiper-slide img {
+  width: 100%;
+}
