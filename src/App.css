@@ -23,3 +23,53 @@
   right: 5px;
   top: 5px;
 }
+
+
+/* NAVBAR OVERLAY */
+
+.overlay {
+  transform: scale(0);
+  background-color: rgba(0,0,0,.7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 4;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: 1s ease-in-out;
+
+}
+
+.overlay input {
+  width: 70%;
+  padding: 7px 10px;
+  border-radius: 25px;
+  border-color:transparent;
+  background-color: transparent;
+  outline: none;
+  text-align: center;
+  color: orange;
+  font-size: 34px;
+}
+
+.overlay .cross-icon {
+  position: absolute;
+  top: 25px;
+  right: 15px;
+  font-size:34px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.active {
+  transform: scale(1);
+}
+
+.s-icon, .cross-icon {
+  cursor: pointer;
+}

@@ -1,9 +1,41 @@
-import React from 'react'
+import React, {forwardRef, useRef} from 'react'
 import {RiSearchEyeLine} from 'react-icons/ri'
 import {AiOutlinePhone} from 'react-icons/ai'
+import {ImCross} from 'react-icons/im'
+
 
 const Navbar = () => {
+
+    const closeBtnRef = forwardRef()
+    const overlayRef = useRef()
+
+    const searchIconRef = forwardRef()
+
+    const closeOverlay = e => {
+        const kliklenenElement = e.target
+
+        if(kliklenenElement.classList.contains('cross-icon')) {
+            overlayRef.current.classList.remove('active')
+        }
+
+       
+    }
+
+    const openOverlay = e => {
+        const kliklenenElement = e.target
+
+        if(kliklenenElement.classList.contains('s-icon')) {
+            overlayRef.current.classList.add('active')
+        }
+    }
+
+
   return (
+    <>
+    <div className="overlay" ref={overlayRef}>
+        <ImCross className='cross-icon' ref={closeBtnRef} onClick={closeOverlay} />
+        <input className='overlay-search-input' type="search" placeholder='Search in IT Brains Search' />
+    </div>
     <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
       <a class="navbar-brand" href="#"><img src="	https://www.bakuelectronics.az/assets/img/logo.svg" alt="" /></a>
@@ -12,7 +44,7 @@ const Navbar = () => {
       </button>
       <div className="s-input">
         <input type="text" />
-        <RiSearchEyeLine className='s-icon' />
+        <RiSearchEyeLine className='s-icon' ref={searchIconRef} onClick={openOverlay} />
 
       </div>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -25,6 +57,8 @@ const Navbar = () => {
       </div>
     </div>
   </nav>
+
+  </>
   )
 }
 
