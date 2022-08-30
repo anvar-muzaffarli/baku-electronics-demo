@@ -3,8 +3,10 @@ import {RiSearchEyeLine} from 'react-icons/ri'
 import {AiOutlinePhone} from 'react-icons/ai'
 import {ImCross} from 'react-icons/im'
 
+import Balans from './Balans'
 
-const Navbar = () => {
+
+const Navbar = ({total,money}) => {
 
     const closeBtnRef = forwardRef()
     const overlayRef = useRef()
@@ -51,7 +53,7 @@ const Navbar = () => {
         <div class="navbar-nav mx-auto">
           <a class="nav-link active text-danger" aria-current="page" href="#">Kampaniyalar</a>
           <a class="nav-link" href="#">Mağazalar</a>
-          <a class="nav-link" href="#">Balans</a>
+          <a class="nav-link" href="#"><Balans total={total} money={money} /></a>
           <a class="nav-link" href="#">143 <AiOutlinePhone /></a>
         </div>
       </div>
